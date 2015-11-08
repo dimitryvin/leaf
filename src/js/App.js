@@ -8,7 +8,7 @@ import HeaderView from './views/HeaderView.js'
 class App extends React.Component {
 
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     render() {

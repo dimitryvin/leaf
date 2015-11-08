@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import stem from '../api/stem.js';
-import TotalsView from './TotalsView.js';
-import ChartView from './ChartView.js';
+import stem from '../api/stem.js'
+import TotalsView from './TotalsView.js'
+import ChartView from './ChartView.js'
 
 class DashboardView extends React.Component {
 
@@ -22,9 +22,8 @@ class DashboardView extends React.Component {
             this.setState({
                 totals: data.body.totals,
                 topAssets: data.body.topAssets
-            });
-
-        });
+            })
+        })
     }
 
     render() {

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Line } from 'react-chartjs';
+import React from 'react'
+import { Line } from 'react-chartjs'
 
-import Number from '../utils/Number.js';
+import Number from '../utils/Number.js'
 
 class ChartView extends React.Component {
 
     constructor(props) {
-        super(props);
+        super(props)
 
         // default state
         this.state = {
@@ -33,24 +33,24 @@ class ChartView extends React.Component {
     }
 
     getAssetData(type, range) {
-        let datasets = [];
+        let datasets = []
         this.props.topAssets.forEach((asset, index) => {
             // if we have the asset ignored, skip it
             if (this.state.ignoredAssetItems.indexOf(index) !== -1) {
-                return;
+                return
             }
 
-            let stats = type == "yearly" ? asset.yearlyStats : asset.monthlyStats;
+            let stats = type == "yearly" ? asset.yearlyStats : asset.monthlyStats
 
             // create the values array for the data object
-            let values = [];
+            let values = []
             stats.forEach(stat => {
                 if (type == "earnings") {
-                    values.push(stat.earnings.toFixed(2));
+                    values.push(stat.earnings.toFixed(2))
                 } else {
-                    values.push(stat.streams);
+                    values.push(stat.streams)
                 }
-            });
+            })
 
             // chart data format for chart.js line chart - http://www.chartjs.org/docs/
             // add chart to data set
@@ -63,8 +63,8 @@ class ChartView extends React.Component {
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220,220,220,1)",
                 data: values
-            });
-        });
+            })
+        })
 
         return datasets;
     }
@@ -72,7 +72,7 @@ class ChartView extends React.Component {
     onRangeChange(e) {
         // if the state didn't change, ignore
         if (e.currentTarget.value === this.state.graphType) {
-            return;
+            return
         }
 
         this.setState({
@@ -84,25 +84,25 @@ class ChartView extends React.Component {
     onGraphTypeChange(e) {
         // if the state didn't change, ignore
         if (e.currentTarget.value === this.state.graphType) {
-            return;
+            return
         }
 
         this.setState({
             graphType: e.currentTarget.value
-        });
+        })
     }
 
     onAssetItemsChange(e) {
-        let ignoredItems = this.state.ignoredAssetItems;
+        let ignoredItems = this.state.ignoredAssetItems
 
         // if the item went from checked => unchecked
         if (!e.target.checked) {
             // add it to the ignore list
-            ignoredItems.push(parseInt(e.target.value));
+            ignoredItems.push(parseInt(e.target.value))
         } else {
             // else remove it from the ignore list
-            let index = ignoredItems.indexOf(parseInt(e.target.value));
-            ignoredItems.splice(index, 1);
+            let index = ignoredItems.indexOf(parseInt(e.target.value))
+            ignoredItems.splice(index, 1)
         }
 
         this.setState({
@@ -112,17 +112,17 @@ class ChartView extends React.Component {
 
     getLabels(type) {
         if (type == "monthly") {
-            return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         } else {
-            var years = [];
+            var years = []
             this.props.topAssets[0].yearlyStats.forEach((asset, index) => {
-                years.push(asset.year);
+                years.push(asset.year)
             });
             // prevent having undefined in the tooltip
             if (years.length == 1) {
-                years.push(years[0]);
+                years.push(years[0])
             }
-            return years;
+            return years
         }
     }
 
@@ -134,7 +134,7 @@ class ChartView extends React.Component {
             var data = {
                 labels: this.getLabels(this.state.range),
                 datasets: this.getAssetData(this.state.graphType, this.state.range)
-            };
+            }
 
             // chart options for chart.js line chart - http://www.chartjs.org/docs/
             let chartOptions = {
@@ -162,12 +162,12 @@ class ChartView extends React.Component {
                         <input checked={this.state.ignoredAssetItems.indexOf(index) === -1} type="checkbox" id={asset._id + index.toString()} name="asset-item" value={index} onChange={this.onAssetItemsChange.bind(this)} />
                         <label htmlFor={asset._id + index.toString()} className="asset-item-title">{asset.metadata.title}</label>
                     </li>
-                ));
-            });
+                ))
+            })
 
             // determine state of the buttons determining if to show earnings or streams
-            let streamsBtnClass = "btn";
-            let earningsBtnClass = "btn";
+            let streamsBtnClass = "btn"
+            let earningsBtnClass = "btn"
             if (this.state.graphType === "streams") {
                 streamsBtnClass += " selected"
             }
@@ -176,8 +176,8 @@ class ChartView extends React.Component {
             }
 
             // determine state of the buttons determining if to show yearly or monthly
-            let yearBtnClass = "btn";
-            let monthBtnClass = "btn";
+            let yearBtnClass = "btn"
+            let monthBtnClass = "btn"
             if (this.state.range === "yearly") {
                 yearBtnClass += " selected"
             }
@@ -206,7 +206,7 @@ class ChartView extends React.Component {
             )
         } else {
             // don't render unless we have data
-            return false;
+            return false
         }
     }
 

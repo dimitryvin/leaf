@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import Number from '../utils/Number.js';
+import Number from '../utils/Number.js'
 
 class TotalsView extends React.Component {
 
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     render() {
-        let totals = this.props.totals;
+        let totals = this.props.totals
 
         // if totals exists, show the data, otherwise show loading
         if (totals) {
