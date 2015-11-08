@@ -1,0 +1,161 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F0F1F2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.chart-view {
+  padding: 10px;
+}
+.chart-view .chart {
+  width: 100%;
+}
+.chart-view .sub-title {
+  color: #333;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #aeaeae;
+  margin: 10px 0;
+}
+.chart-view .btn {
+  background: #fff;
+  border: 1px solid #00EBB0;
+  font-size: 13px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  color: #1bd6a4;
+}
+.chart-view .btn.selected {
+  color: white;
+  background-color: #00EBB0;
+}
+.chart-view .graph-options {
+  text-align: center;
+}
+.chart-view .btn-group {
+  display: inline-block;
+  margin: 10px 5px 0 5px;
+}
+.chart-view .btn-group .btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.chart-view .btn-group .btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+}
+.chart-view .asset-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.chart-view .asset-items .asset-item {
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 13px;
+}
+.chart-view .asset-items .asset-item .asset-item-title {
+  margin-left: 10px;
+  width: calc(100% - 30px);
+  display: inline-block;
+}
+.chart-view .asset-items .asset-item:nth-child(odd) {
+  background: #efefef;
+}
+
+.dashboard-child {
+  box-sizing: border-box;
+  width: 900px;
+  margin: 0 auto;
+  border: 1px solid #aeaeae;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(28, 28, 28, 0.1);
+  box-shadow: 0 0 3px 0 rgba(28, 28, 28, 0.1);
+}
+@media screen and (max-width: 900px) {
+  .dashboard-child {
+    width: 100%;
+    margin: 0;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #aeaeae;
+  }
+}
+.dashboard-child:last-child {
+  margin-bottom: 20px;
+}
+
+#HeaderView {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #121212;
+  background-color: #414042;
+  font-family: "Georgia", "serif";
+}
+#HeaderView .logo {
+  line-height: 80px;
+  height: 60px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+#HeaderView .logo-title {
+  font-size: 32px;
+  line-height: 80px;
+  color: white;
+  margin-left: 10px;
+}
+#HeaderView ul.mini-nav {
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  list-style: none;
+  color: white;
+}
+#HeaderView ul.mini-nav a {
+  cursor: pointer;
+}
+#HeaderView ul.mini-nav a:hover {
+  text-decoration: underline;
+}
+
+.totals-view.loading {
+  text-align: center;
+  padding: 15px;
+}
+.totals-view .loading {
+  height: 70px;
+  width: 70px;
+  margin-top: 6px;
+}
+.totals-view .data-point {
+  display: inline-block;
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+  border-right: 1px solid #aeaeae;
+  padding: 10px;
+  color: #333;
+}
+.totals-view .data-point:last-child {
+  border-right: none;
+}
+.totals-view .data-point .title {
+  font-weight: bold;
+}
+.totals-view .data-point .value {
+  font-size: 32px;
+  font-weight: lighter;
+}

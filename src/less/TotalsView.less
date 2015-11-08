@@ -1,0 +1,36 @@
+.totals-view {
+
+    &.loading {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .loading {
+        height: 70px;
+        width: 70px;
+        margin-top: 6px;
+    }
+
+    .data-point {
+        display: inline-block;
+        width: 25%;
+        box-sizing: border-box;
+        text-align: center;
+        border-right: 1px solid #aeaeae;
+        padding: 10px;
+        color: #333;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        .value {
+            font-size: 32px;
+            font-weight: lighter;
+        }
+    }
+}
